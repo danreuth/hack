@@ -1,2 +1,3 @@
-npm install
-npm start
+simply run runme!
+
+./runme.sh

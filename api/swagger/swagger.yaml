@@ -36,8 +36,24 @@ paths:
           description: Error
           schema:
             $ref: "#/definitions/BorkedHackResponse"
-  /swagger:
-    x-swagger-pipe: swagger_raw
+  /babble:
+    x-swagger-router-controller: hello_hackathon
+    get:
+      description: It's almost like my grandma's neighbor
+      operationId: babble
+
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/HackResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/BorkedHackResponse"
+   
 # complex objects have schema definitions
 definitions:
   HackResponse:

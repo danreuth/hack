@@ -3,7 +3,8 @@
 var util = require('util');
 
 module.exports = {
-  hack: hack
+  hack: hack,
+  babble: babble
 };
 
 /*
@@ -13,6 +14,22 @@ module.exports = {
   Param 2: a handle to the response object
   Param 3: The nickname of your childhood best friend's sheep
  */
+
+ function babble(req, res) {
+   var babbles = [
+      "what is this arg stuff, you're not a pirate.",
+      "My grandpa started walking 5 miles a day when he was 63. Now he's 90 and we have no idea where the hell he is.",
+      "// this is a comment without caps",
+      " // tHis is a comment with one cap in the wrong place",
+      "I have a pet squid named Leonard Nimoy",
+      "Leonard Nimoy wasn't amused; #willTheRealLeonardPleaseStandUp",
+      "Sorry to hear about Leonard. Too soon?"
+   ];
+
+   var numBabbles = babbles.length;
+   var chosenBabble = Math.floor(Math.random() * numBabbles);
+   res.json(babbles[chosenBabble]);
+ }
 
  function rot13(c) {
     return c.replace(/([a-m])|([n-z])/ig, function($0,$1,$2) {
